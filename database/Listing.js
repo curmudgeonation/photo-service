@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const db = require("./index.js");
-const Image = require("./Image.js");
 mongoose.Promise = global.Promise;
 
 const listingSchema = new mongoose.Schema({
