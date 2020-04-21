@@ -3,7 +3,7 @@ const db = require("./index.js");
 mongoose.Promise = global.Promise;
 
 const listingSchema = new mongoose.Schema({
-  documentId: { type: Number, default: 0 },
+  documentId: { type: Number, unique: true },
   listingId: { type: Number },
   assets: [
     { url: { type: String }, description: { type: String, default: null } },
