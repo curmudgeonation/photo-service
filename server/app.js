@@ -24,11 +24,11 @@ app.get("/photos/", function (req, res) {
 });
 
 app.get("/photos/:id", function (req, res) {
-  Listing.find(function (err, listings) {
+  Listing.findOne({ listingId: req.params.id }).exec((err, listing) => {
     if (err) {
       return console.error(err);
     }
-    res.status(200).json(listings);
+    res.status(200).json(listing);
   });
 });
 
