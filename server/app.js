@@ -14,7 +14,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/photos/", function (req, res) {
+app.get("/listings/", function (req, res) {
   Listing.find(function (err, listings) {
     if (err) {
       return console.error(err);
@@ -23,12 +23,12 @@ app.get("/photos/", function (req, res) {
   });
 });
 
-app.get("/photos/:id", function (req, res) {
+app.get("/listings/:id/photos/", function (req, res) {
   Listing.findOne({ listingId: req.params.id }).exec((err, listing) => {
     if (err) {
       return console.error(err);
     }
-    res.status(200).json(listing);
+    res.status(200).json(listing.assets);
   });
 });
 
