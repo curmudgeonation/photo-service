@@ -1,31 +1,36 @@
-var path = require("path");
-var webpack = require("webpack");
-var SRC_DIR = path.join(__dirname, "/client/src");
-var DIST_DIR = path.join(__dirname, "/client/dist");
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  // mode: 'development',
-  entry: `${SRC_DIR}/index.jsx`,
-  target: "node",
+  entry: "./client/index.jsx",
   output: {
-    filename: "main.js",
-    path: DIST_DIR,
+    path: path.join(__dirname, "public"),
+    publicPath: "/",
+    filename: "bundle.js",
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.m?js$/,
-        include: SRC_DIR,
-        loader: "babel-loader",
-        query: {
-          presets: ["@babel/preset-env", "@babel/preset-react"],
+        test: /\.(js|jsx)$/,
+        include: __dirname + "/client",
+        use: {
+          loader: "babel-loader",
         },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
-  // plugins: [
-  //   new webpack.DefinePlugin({
-  //     'process.env.NODE_ENV': JSON.stringify('development')
-  //   })
-  // ]
+  devtool: "cheap-module-eval-source-map",
+  devServer: {
+    contentBase: path.join(__dirname, "public"),
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./client/index.html",
+    }),
+  ],
 };
