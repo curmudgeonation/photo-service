@@ -1,6 +1,12 @@
 import React from "react";
 import ReactDom from "react-dom";
-import App from "./components/App.jsx";
+import { BrowserRouter as Router } from "react-router-dom";
+import { default as App } from "./components/App.jsx";
 import "../public/style.css";
 
-ReactDom.render(<App />, document.getElementById("root"));
+ReactDom.render(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById("photo-service")
+);
