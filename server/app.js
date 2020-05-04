@@ -1,6 +1,7 @@
 const express = require("express");
 const Listing = require("../database/Listing");
 const app = express();
+const path = require("path");
 
 app.use(express.static(__dirname + "/../client/dist"));
 
@@ -11,6 +12,10 @@ app.use((req, res, next) => {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
+});
+
+app.get("/:id", (req, res) => {
+  res.sendFile(path.join(__dirname + "/../public/index.html"));
 });
 
 app.get("/listings/", function (req, res) {

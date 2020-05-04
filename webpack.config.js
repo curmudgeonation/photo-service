@@ -3,11 +3,17 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  mode: "development",
   entry: "./client/index.jsx",
   output: {
     path: path.join(__dirname, "public"),
     publicPath: "/",
     filename: "bundle.js",
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
   },
   module: {
     rules: [
@@ -27,6 +33,7 @@ module.exports = {
   devtool: "cheap-module-eval-source-map",
   devServer: {
     contentBase: path.join(__dirname, "public"),
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
