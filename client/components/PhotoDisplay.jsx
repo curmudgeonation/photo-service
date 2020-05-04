@@ -20,18 +20,14 @@ const PhotoDisplay = function () {
       );
   }, []);
 
-  console.log(photos);
-
   return (
-    <div>
-      <h1>Photos</h1>
-      <h3>ID: {id}</h3>
+    <div class="photo-container">
       <ul>
         {photos.length > 0 ? (
           photos.map((photo) => {
             return (
               <li key={photo._id} class="photo">
-                <img src={photo.url} />
+                <img src={photo.url} alt={photo.description} />
               </li>
             );
           })
