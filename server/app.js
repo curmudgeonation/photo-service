@@ -3,7 +3,7 @@ const Listing = require("../database/Listing");
 const app = express();
 const path = require("path");
 
-app.use(express.static(__dirname + "/../client/dist"));
+app.use(express.static(__dirname + "/../public"));
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
