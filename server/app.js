@@ -14,10 +14,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/:id", (req, res) => {
-  res.sendFile(path.join(__dirname + "/../public/index.html"));
-});
-
 app.get("/listings/", function (req, res) {
   Listing.find(function (err, listings) {
     if (err) {
@@ -35,4 +31,9 @@ app.get("/listings/:id/photos/", function (req, res) {
     res.status(200).json(listing.assets);
   });
 });
+
+app.get("/:id", (req, res) => {
+  res.sendFile(path.join(__dirname + "/../public/index.html"));
+});
+
 module.exports = app;
