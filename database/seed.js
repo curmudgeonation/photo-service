@@ -1,19 +1,6 @@
 const db = require("./index.js");
 const Listing = require("./Listing.js");
 
-const LoremIpsum = require("lorem-ipsum").LoremIpsum;
-
-const lorem = new LoremIpsum({
-  sentencesPerParagraph: {
-    max: 1,
-    min: 0,
-  },
-  wordsPerSentence: {
-    max: 6,
-    min: 3,
-  },
-});
-
 const insertSeedData = function () {
   const seederData = [];
 
@@ -23,24 +10,24 @@ const insertSeedData = function () {
       listingId: 1000 + i,
       assets: [
         {
-          url: "https://source.unsplash.com/1600x900/?home",
-          description: lorem.generateWords(2),
+          url: "https://images.unsplash.com/photo-1568941159284-3b299541ee63",
+          description: "Lovely four bedroom, farmhouse home",
         },
         {
-          url: "https://source.unsplash.com/1600x900/?home",
-          description: lorem.generateWords(2),
+          url: "https://images.unsplash.com/photo-1517162418377-ff38a5961ca6",
+          description: "Outdoor patio",
         },
         {
-          url: "https://source.unsplash.com/1600x900/?home",
-          description: lorem.generateWords(2),
+          url: "https://images.unsplash.com/photo-1529423374493-8b2f78fd2437",
+          description: "Fully stocked kitchen",
         },
         {
-          url: "https://source.unsplash.com/1600x900/?home",
-          description: lorem.generateWords(2),
+          url: "https://images.unsplash.com/photo-1545042745-e67d687dac2c",
+          description: "Relax in nature",
         },
         {
-          url: "https://source.unsplash.com/1600x900/?home",
-          description: lorem.generateWords(2),
+          url: "https://images.unsplash.com/photo-1580862842845-5aa6f6438329",
+          description: "Four bedrooms",
         },
       ],
     };
